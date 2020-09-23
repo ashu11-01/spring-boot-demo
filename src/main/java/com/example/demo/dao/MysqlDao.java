@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("mysql")
+@Repository("mysql_dao")
 public class MysqlDao  implements PersonDao{
 
     private PersonRepository repository;

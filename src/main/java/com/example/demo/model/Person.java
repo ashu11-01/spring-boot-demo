@@ -1,23 +1,23 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 public class Person {
 
     @Column(name = "id")
-    @PrimaryKeyJoinColumn
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Id
     private UUID id;
     @Column(name="name")
     private String name;
 
+    public Person () {}
     public Person(@JsonProperty("id") UUID id,
                   @JsonProperty("name") String name) {
         this.id = id;
