@@ -22,7 +22,7 @@ public class PersonController {
     public Person addPerson(@RequestBody Person person){
         return personService.addPerson(person);
     }
-    @GetMapping
+    @GetMapping(path = "/all")
     public List<Person> getAllPeople(){
         return personService.getAllPeople();
     }
